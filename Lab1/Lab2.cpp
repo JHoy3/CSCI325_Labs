@@ -71,24 +71,44 @@ int main() {
 
     //scores
     std::vector<int> scores = {78,91,66,95,73,83,92,89,77};
-    int first = 0;
-    int second = 0;
-    int third = 0;
+    int min = 0;
+    int first = min;
+    int second = min;
+    int third = min;
     
-    for (int score : scores) {
-        if ( first > second) {
+    for (auto it = scores.begin(); it != scores.end(); it++){
+        if (*it > first) {
             third = second;
             second = first;
-            first = score;
+            first = *it;
         }
-        else if (score > second) {
+        else if (*it > second) {
             third = second;
-            second = score;
+            second = *it;
         }
-        else if (score > third) {
-            third = score;
+        else if (*it > third) {
+            third = *it;
         }
     }
+
     std::cout << "1st: " << first << " " << "2nd: " << second << " " << "3rd: " << third << "\n";
+
+    //average
+    double total = 0;
+    for (auto it = scores.begin(); it != scores.end(); it++){
+        total += *it;
+    }
+    double average = total / scores.size();
+    //show average
+    std::cout << "Average: " << static_cast(2) << average << "\n";
+    
+    int ab80 = 0;
+    //amout of scores above 80
+    for (auto it = scores.begin(); it != scores.end(); it++){
+        if (*it > 80){
+            ab80 += 1;
+        }
+    }
+    std::cout << "Numbers above 80: " << ab80;
     return 0;
 }
