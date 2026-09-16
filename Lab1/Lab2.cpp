@@ -70,7 +70,7 @@ int main() {
     std::cout << std::endl;
 
     //scores
-    std::vector<int> scores = {78,91,66,95,73,83,92,89,77};
+    std::vector<int> scores = {78,91,66,84,95,73,83,92,89,77};
     int min = 0;
     int first = min;
     int second = min;
@@ -91,7 +91,8 @@ int main() {
         }
     }
 
-    std::cout << "1st: " << first << " " << "2nd: " << second << " " << "3rd: " << third << "\n";
+    std::cout << "Highest 3 numbers- "  "1st: " << first << " " << 
+    "2nd: " << second << " " << "3rd: " << third << "\n";
 
     //average
     double total = 0;
@@ -100,7 +101,7 @@ int main() {
     }
     double average = total / scores.size();
     //show average
-    std::cout << "Average: " << static_cast(2) << average << "\n";
+    std::cout << "Average: " << average << "\n";
     
     int ab80 = 0;
     //amout of scores above 80
@@ -109,6 +110,11 @@ int main() {
             ab80 += 1;
         }
     }
-    std::cout << "Numbers above 80: " << ab80;
+    std::cout << "Numbers above 80: " << ab80 << "\n";
+
+    std::vector<int> v = {10,20,30};
+    std::cout << v[5] << "\n";
+    std::cout << v.at(5) << "\n";
+ 
     return 0;
 }
