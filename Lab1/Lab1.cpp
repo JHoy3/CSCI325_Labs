@@ -80,6 +80,5 @@ int main() {
     std::cout << "Maximum value in b: " << find_max(b) << std::endl;
     std::cout << "Maximum value in c: " << find_max(c) << std::endl;
 
-
     return 0;
 }

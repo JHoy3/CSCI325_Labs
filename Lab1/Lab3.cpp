@@ -34,20 +34,21 @@ int main() {
 
     if (it != scores.cend()){
         cout << "Found: " << *it << endl;
-    } else {
-        cout << target << " Not found" << endl;
-    }
+    } 
+    // else {
+    //     cout << target << " was not found." << endl;
+    // }
 
     // Task 3
     vector<int> values = {78,92,65,88,74,92};
-    cout << "Acending: " << endl;
+    cout << "Acending Order: " << endl;
 
     //ascending sort.
     sort(values.begin(),values.end());
 
     int inc = 1;
     for (auto it = values.cbegin(); it != values.cend(); ++it){
-        cout << inc << ":" << *it << " ";
+        cout << inc << ": " << *it << " ";
         inc += 1;
     }
     inc = 1;
@@ -55,16 +56,29 @@ int main() {
 
 
     //decending sort.
-    cout << "Decending: " << endl;
+    cout << "Decending Order: " << endl;
     sort(values.begin(),values.end(), greater<int>());
 
     for (auto it = values.cbegin(); it != values.cend(); ++it){
-        cout << inc << ":" << *it << " ";
+        cout << inc << ": " << *it << " ";
+        inc += 1;
+    }
+    inc = 1;
+    cout << endl;
+    
+    vector <int> Alg = {42,78,15,89,34,65,12,90,23,56};
+
+    cout << "Algorithm Vector: " << endl;
+    for (auto it = Alg.begin(); it != Alg.end(); ++it) {
+        cout << inc << ": " << *it << " ";
         inc += 1;
     }
     inc = 1;
     cout << endl;
 
-    
+    // uses the max_element() and min_element() algorithms to find the maximum and minimum elements in the vector.
+    cout << "Maximum element in Algorithm Vector using max_element(): " << *max_element(Alg.begin(),Alg.end()) << endl;
+    cout << "Minimum element in Algorithm Vector using min_element(): " << *min_element(Alg.begin(),Alg.end()) << endl;
+
     return 0;
 }
