@@ -34,10 +34,9 @@ int main() {
 
     if (it != scores.cend()){
         cout << "Found: " << *it << endl;
-    } 
-    // else {
-    //     cout << target << " was not found." << endl;
-    // }
+    } else {
+        cout << target << " was not found." << endl;
+    }
 
     // Task 3
     vector<int> values = {78,92,65,88,74,92};
