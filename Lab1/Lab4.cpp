@@ -10,14 +10,39 @@ void fillArray(int arr[], int size) {
 }
 
 //direct access
-void directAccess(int arr[], int size, int index) {
+int directAccess(int arr[], int size, int index) {
+    int inc = 0;
     if (index >= 0 && index < size) {
         std::cout << "Element at index " << index << " is: " << arr[index] << std::endl;
+        inc += 1;
     } else {
         std::cout << "Element not found!" << std::endl;
+        inc += 1;
     }
+    return inc;
 }
 
+
+//oneLoop()
+int oneLoop(int arr[], int size) {
+    int inc = 0;
+    for (int i = 0; i < size; i++){
+        int currentElement = arr[i];
+        inc ++;
+        // std::cout << inc << ": " << currentElement << " "; 
+    }
+    return inc;
+}
+
+
+int divideBy2(int size) {
+    int inc = 0;
+    while (size > 1 ) {
+        size = size / 2;
+        ++inc; 
+    }
+    return inc;
+}
 
 // test input size with 10, 100, 500, 2000
 int main() {
@@ -34,30 +59,69 @@ int main() {
     fillArray(five_hundred, 500);
     fillArray(two_thousand, 2000);
 
-    //asking for an index to access the element in each array
+    //asking for an index to access the element in each array, and the amout of actions taken to find the value.
     std::cout << "For direct access, please enter an index to access the element (Must be less than 10): ";
     int index = 0;
     std::cin >> index;
-    directAccess(ten, 10, index);
+    int inc = directAccess(ten, 10, index);
+    std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
     index = 0;
 
-    std::cout << "For direct access, please enter an index to access the element (Must be less than 100): ";
-    std::cin >> index;
-    directAccess(hundred, 100, index);
-    index = 0;
+    // std::cout << "For direct access, please enter an index to access the element (Must be less than 100): ";
+    // std::cin >> index;
+    // inc = directAccess(hundred, 100, index);
+    // std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
+    // index = 0;
     
-    std::cout << "For direct access, please enter an index to access the element (Must be less than 500): ";
-    std::cin >> index;
-    directAccess(five_hundred, 500, index);
-    index = 0;
+    // std::cout << "For direct access, please enter an index to access the element (Must be less than 500): ";
+    // std::cin >> index;
+    // inc = directAccess(five_hundred, 500, index);
+    // std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
+    // index = 0;
     
-    std::cout << "For direct access, please enter an index to access the element (Must be less than 2000): ";
-    std::cin >> index;
-    directAccess(two_thousand, 2000, index);
-    index = 0;
+    // std::cout << "For direct access, please enter an index to access the element (Must be less than 2000): ";
+    // std::cin >> index;
+    // inc = directAccess(two_thousand, 2000, index);
+    // std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
+    // index = 0;
 
+    printf("\n");
 
+    //calling oneLoop
+    std::cout << "For a one loop with 10 elements:" << std::endl;
+    inc = oneLoop(ten,10);
+    std::cout << "This took " << inc << " iterations." << std::endl;
 
+    std::cout << "For a one loop with 100 elements:" << std::endl;
+    inc = oneLoop(hundred,100);
+    std::cout << "This took " << inc << " iterations." << std::endl;
+
+    std::cout << "For a one loop with 500 elemets:" << std::endl;
+    inc = oneLoop(five_hundred,500);
+    std::cout << "This took " << inc << " iterations." << std::endl;
+    
+    std::cout << "For a one loop for 2000 elements:" << std::endl;
+    inc = oneLoop(two_thousand,2000);
+    std::cout << "This took " << inc << " iterations." << std::endl;
+
+    printf("\n"); 
+
+    //calling divide by 2
+    std::cout << "For a divide by 2 with 10 elements:" << std::endl;
+    inc = divideBy2(10);
+    std::cout << "Took :" << inc << " iterations." << std::endl;
+
+    std::cout << "For a divide by 2 with 100 elements:" << std::endl;
+    inc = divideBy2(100);
+    std::cout << "Took :" << inc << " iterations." << std::endl;
+
+    std::cout << "For a divide by 2 with 500 elements:" << std::endl;
+    inc = divideBy2(500);
+    std::cout << "Took :" << inc << " iterations." << std::endl;
+
+    std::cout << "For a divide by 2 with 2000 elements:" << std::endl;
+    inc = divideBy2(2000);
+    std::cout << "Took :" << inc << " iterations." << std::endl;
 
     //release and reset the pointers
     delete[] ten;
