@@ -102,17 +102,17 @@ int main() {
     std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
     index = 0;
     
-    // std::cout << "For direct access, please enter an index to access the element (Must be less than 500): ";
-    // std::cin >> index;
-    // inc = directAccess(five_hundred, 500, index);
-    // std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
-    // index = 0;
+    std::cout << "For direct access, please enter an index to access the element (Must be less than 500): ";
+    std::cin >> index;
+    inc = directAccess(five_hundred, 500, index);
+    std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
+    index = 0;
     
-    // std::cout << "For direct access, please enter an index to access the element (Must be less than 2000): ";
-    // std::cin >> index;
-    // inc = directAccess(two_thousand, 2000, index);
-    // std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
-    // index = 0;
+    std::cout << "For direct access, please enter an index to access the element (Must be less than 2000): ";
+    std::cin >> index;
+    inc = directAccess(two_thousand, 2000, index);
+    std::cout << "This took " << inc << " times to find the value at " << index << "." << std::endl;
+    index = 0;
 
     printf("\n");
 
@@ -121,48 +121,77 @@ int main() {
     inc = oneLoop(ten,10);
     std::cout << "This took " << inc << " iterations." << std::endl;
 
-    // std::cout << "For a one loop with 100 elements:" << std::endl;
-    // inc = oneLoop(hundred,100);
-    // std::cout << "This took " << inc << " iterations." << std::endl;
+    std::cout << "For a one loop with 100 elements:" << std::endl;
+    inc = oneLoop(hundred,100);
+    std::cout << "This took " << inc << " iterations." << std::endl;
 
-    // std::cout << "For a one loop with 500 elemets:" << std::endl;
-    // inc = oneLoop(five_hundred,500);
-    // std::cout << "This took " << inc << " iterations." << std::endl;
+    std::cout << "For a one loop with 500 elemets:" << std::endl;
+    inc = oneLoop(five_hundred,500);
+    std::cout << "This took " << inc << " iterations." << std::endl;
     
-    // std::cout << "For a one loop for 2000 elements:" << std::endl;
-    // inc = oneLoop(two_thousand,2000);
-    // std::cout << "This took " << inc << " iterations." << std::endl;
+    std::cout << "For a one loop for 2000 elements:" << std::endl;
+    inc = oneLoop(two_thousand,2000);
+    std::cout << "This took " << inc << " iterations." << std::endl;
 
     printf("\n"); 
 
-    //calling divide by 2
+    // calling divide by 2
     std::cout << "For a divide by 2 with 10 elements:" << std::endl;
     inc = divideBy2(10);
     std::cout << "Took: " << inc << " iterations." << std::endl;
 
-    // std::cout << "For a divide by 2 with 100 elements:" << std::endl;
-    // inc = divideBy2(100);
-    // std::cout << "Took: " << inc << " iterations." << std::endl;
+    std::cout << "For a divide by 2 with 100 elements:" << std::endl;
+    inc = divideBy2(100);
+    std::cout << "Took: " << inc << " iterations." << std::endl;
 
-    // std::cout << "For a divide by 2 with 500 elements:" << std::endl;
-    // inc = divideBy2(500);
-    // std::cout << "Took: " << inc << " iterations." << std::endl;
+    std::cout << "For a divide by 2 with 500 elements:" << std::endl;
+    inc = divideBy2(500);
+    std::cout << "Took: " << inc << " iterations." << std::endl;
 
-    // std::cout << "For a divide by 2 with 2000 elements:" << std::endl;
-    // inc = divideBy2(2000);
-    // std::cout << "Took: " << inc << " iterations." << std::endl;
+    std::cout << "For a divide by 2 with 2000 elements:" << std::endl;
+    inc = divideBy2(2000);
+    std::cout << "Took: " << inc << " iterations." << std::endl;
 
-    //inside loop
-    std::cout << "inside loop: " << std::endl;
+    printf("\n");
+
+    // inside loop
+    std::cout << "inside loop for 10: " << std::endl;
     inc = insideLoopD2(ten, 10);
     std::cout << "Inside loop took " << inc << " tries" << std::endl;
  
+    std::cout << "inside loop for 100: " << std::endl;
+    inc = insideLoopD2(hundred, 100);
+    std::cout << "Inside loop took " << inc << " tries" << std::endl;
+
+    std::cout << "inside loop for 500: " << std::endl;
+    inc = insideLoopD2(five_hundred, 500);
+    std::cout << "Inside loop took " << inc << " tries" << std::endl;
+
+    std::cout << "inside loop for 2000: " << std::endl;
+    inc = insideLoopD2(two_thousand, 2000);
+    std::cout << "Inside loop took " << inc << " tries" << std::endl;
+
+    printf("\n");
+
     //nested loop
-    std::cout << "nested loop: " << std::endl;
+    std::cout << "nested loop for 10: " << std::endl;
     inc = nestedLoop(10);
     std::cout << "Inc = " << inc << std::endl;
 
+    std::cout << "nested loop for 100: " << std::endl;
+    inc = nestedLoop(100);
+    std::cout << "Inc = " << inc << std::endl;
+
+    std::cout << "nested loop for 500: " << std::endl;
+    inc = nestedLoop(500);
+    std::cout << "Inc = " << inc << std::endl;
+
+    std::cout << "nested loop for 2000: " << std::endl;
+    inc = nestedLoop(2000);
+    std::cout << "Inc = " << inc << std::endl;
+
     
+
     //release and reset the pointers
     delete[] ten;
     ten = nullptr;
@@ -173,4 +202,5 @@ int main() {
     delete[] two_thousand;
     two_thousand = nullptr;
 
+    return 0;
 }
