@@ -191,7 +191,7 @@ int main() {
 
 // What is a memory leak, and how does this program prevent one?
 // A memory leak is when memory is allocated but not released properly. 
-//This program prevents a memory leak by copying the values from the dynamic array to a vector and then releasing the memory allocated for the dynamic array using delete[] and reseting the pointer to nullptr.
+// This program prevents a memory leak by copying the values from the dynamic array to a vector and then releasing the memory allocated for the dynamic array using delete[] and reseting the pointer to nullptr.
 
 // Why is vector generally safer than a manually allocated array?
 // A vector is generally safer than a manually allocated array because it manages its own memory and provides bounds checking.
