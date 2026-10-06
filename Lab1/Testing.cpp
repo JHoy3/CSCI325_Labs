@@ -42,9 +42,10 @@ void insertionSort(vector<int>& v) {     // O(n^2)
     }
 }
 
+
 void selectionSort(vector<int>& v) {            // O(n^2)
     for (int i = 0; i < v.size()-1; i++) {
-        int minIndex = i;
+        int minIndex=  i;
 
         for (int j = 1; j < v.size(); j++) {
             if (v[j] < v[minIndex]) {
@@ -57,8 +58,9 @@ void selectionSort(vector<int>& v) {            // O(n^2)
     }
 }
 
+
 void bubbleSort(vector<int>& v) {               // O(n^2)
-    for (int end = v.size() -1; end > 0; end--) {
+    for (int end = v.size() -1; end > 0; end--) {   // needs #include<utility>   this is needed for the swap functionalility
         bool swapped = false;
 
         for (int i = 0; i < end; i++) {
@@ -72,6 +74,23 @@ void bubbleSort(vector<int>& v) {               // O(n^2)
         }
     }
 }
+
+
+void mergeSort(vector<int>& v) {
+    if(v.size() <= 1)
+    return;
+
+    int mid = v.size() / 2;
+
+    vector<int> left(v.begin(), v.begin() + mid);
+    vector<int> right(v.begin() + mid, v.end());
+
+    megeSort(left);
+    mergeSort(right);
+
+   merge(v, left, right); 
+}
+
 
 void merge(vector<int>& v, vector<int>& left, vector<int>& right) {
     int l = 0; // index for left
@@ -103,20 +122,13 @@ void merge(vector<int>& v, vector<int>& left, vector<int>& right) {
     }
 }
 
-void mergeSort(vector<int>& v) {
-    if(v.size() <= 1)
-    return;
 
-    int mid = v.size() / 2;
-
-    vector<int> left(v.begin(), v.begin() + mid);
-    vector<int> right(v.begin() + mid, v.end());
-
-    megeSort(left);
-    mergeSort(right);
-
-    merge(v, left, right);
+//syntax for a node
+struct Node {
+    int data;
+    Node* next;
 }
+
 
 
 
@@ -169,6 +181,12 @@ int main () {
         choose(level + 1);
 
     }
+
+
+    //creation of nodes
+    Node* head = new Node{10, nullptr};
+    head->next = new Node{20, nullptr};
+    head->next->next = new Node{30, nullprt};
 
 
     return 0;
