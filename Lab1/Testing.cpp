@@ -42,7 +42,7 @@ void insertionSort(vector<int>& v) {     // O(n^2)
     }
 }
 
-void selectionSort(vector<int>& v) {
+void selectionSort(vector<int>& v) {            // O(n^2)
     for (int i = 0; i < v.size()-1; i++) {
         int minIndex = i;
 
@@ -57,8 +57,8 @@ void selectionSort(vector<int>& v) {
     }
 }
 
-void bubbleSort(vector<int>& v) {
-    for (int end = v.size() -1; end > o; end--) {
+void bubbleSort(vector<int>& v) {               // O(n^2)
+    for (int end = v.size() -1; end > 0; end--) {
         bool swapped = false;
 
         for (int i = 0; i < end; i++) {
@@ -74,15 +74,15 @@ void bubbleSort(vector<int>& v) {
 }
 
 void merge(vector<int>& v, vector<int>& left, vector<int>& right) {
-    int t = 0; // index for left
+    int l = 0; // index for left
     int j = 0; // index for right
     int k = 0; // index for v
 
     //comparing left and right
-    while (t < left.size() && j < right.size()) {
-        if (left[t] < right[j]) {
-            v[k] = left[t];
-            t++;
+    while (l < left.size() && j < right.size()) {
+        if (left[l] < right[j]) {
+            v[k] = left[l];
+            l++;
         } else {
             v[k] = right[j];
             j++;
@@ -90,13 +90,13 @@ void merge(vector<int>& v, vector<int>& left, vector<int>& right) {
         k++;
     }
     // copy anything remaining in left
-    while (t < left.size()) {
+    while (l < left.size()) {
         v[k] = left[t];
         t++;
         k++;
     }
     //copy anything from remaining in right
-    while (t < right.size()){
+    while (l < right.size()){
         v[k] = right[j];
         j++;
         k++;
@@ -106,7 +106,19 @@ void merge(vector<int>& v, vector<int>& left, vector<int>& right) {
 void mergeSort(vector<int>& v) {
     if(v.size() <= 1)
     return;
+
+    int mid = v.size() / 2;
+
+    vector<int> left(v.begin(), v.begin() + mid);
+    vector<int> right(v.begin() + mid, v.end());
+
+    megeSort(left);
+    mergeSort(right);
+
+    merge(v, left, right);
 }
+
+
 
 
 int main () {
