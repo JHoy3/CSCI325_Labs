@@ -37,11 +37,25 @@ void display(Node* head) {
 
 // TODO 1: insert a new node at the beginning of the list.
 void insertFront(Node*& head, int value) {
+    Node* newNode = new Node{value, nullptr};
+    Node* current = head;
+
+
+    if (current == head) {
+        current->next = head;
+        head = newNode;
+        return;
+    }
+
+
 }
 
-// TODO 2: if exist return treu; otherwise return false.
+// TODO 2: if exist return true; otherwise return false.
 bool search(Node* head, int value) {
-    return false;  // required for your implementation.
+    bool searchresult = false;
+
+
+    return searchresult;  // required for your implementation.
 }
 
 // TODO 3: count and return the number of nodes.
@@ -63,6 +77,12 @@ int main() {
     insertEnd(head, 40);
     //already provided display()
     cout << "Original list: ";
+    display(head);
+
+    printf("\n");
+
+    insertFront(head, 100);
+    cout << "After adding element to front: ";
     display(head);
 
     // see task guidelines from Activity 1.

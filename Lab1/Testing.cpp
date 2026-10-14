@@ -10,7 +10,6 @@ int linearSearch(const vector<int>& v, int target) {  // O(n)
 
 }
 
-
 int BinarySearch(const vector<int>& v, int target) { // O(logn)
     int low = 0;
     int high = static_cast<int>(v.size()) - 1;
@@ -120,74 +119,4 @@ void merge(vector<int>& v, vector<int>& left, vector<int>& right) {
         j++;
         k++;
     }
-}
-
-
-//syntax for a node
-struct Node {
-    int data;
-    Node* next;
-}
-
-
-
-
-
-int main () {
-
-    // O(1) constant time
-    // int value = numbers[index];   
-
-    // O(logn) Logorithmic 
-    while (left <= right) {
-        int mid = left + (right - left) /2
-
-        if (numbers[mid] == target) {
-            cout << "Found" << endl;
-            break;
-        }
-        else if (numbers[mid] < target) {
-            left = mid + 1;
-        } else {
-            right = mid - 1;
-        }
-    }
- 
-    // O(n) Linear time     / used for linear search
-    for (int i = 0; i < n; i++) {
-        cout << numbers[i];
-    }
-
-    // O(n log n) linearithmic 
-    for (int i = 0; i < n; ++i) {
-        int remaining = n;
-        while (remaining > 1) {
-            remaining /= 2;
-        }
-    }
-
-    // O(n^2) Quadratic time
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            compare(numbers[i], numbers[j]);
-        }
-    }
-
-    //O(2^n) Exponential time
-    void choose(int level) {
-        if (level == n) retrun;
-
-        choose(level + 1);
-        choose(level + 1);
-
-    }
-
-
-    //creation of nodes
-    Node* head = new Node{10, nullptr};
-    head->next = new Node{20, nullptr};
-    head->next->next = new Node{30, nullprt};
-
-
-    return 0;
 }
