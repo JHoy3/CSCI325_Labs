@@ -45,7 +45,13 @@ void insertFront(Node*& head, int value) {
 // TODO 2: if exist return true; otherwise return false.
 bool search(Node* head, int value) {
     bool searchresult = false;
-
+    
+    while (head != nullptr) {
+        if (head->data == value){
+            searchresult = true;
+        }
+        head = head->next;
+    }
 
     return searchresult;  // required for your implementation.
 }
@@ -65,6 +71,16 @@ int countNodes(Node* head) {
 // TODO 4: Delete the node containing value.
 // Update head when needed and release the removed node using delete.
 void deleteValue(Node*& head, int value) {
+    Node* temp = head;
+    
+    while (head != nullptr) {
+        if (head->data == value) {
+        head = head->next;
+        delete temp;        
+        }
+        head = head->next;
+    }
+    
 }
 
 int main() {
@@ -79,16 +95,32 @@ int main() {
     display(head);
 
     printf("\n");
-
+    
+    //for insert front function
     insertFront(head, 100);
     cout << "After adding element to front: ";
     display(head);
 
     printf("\n");
 
+    // for counting nodes function
     int count = 0;
     count = countNodes(head);
     cout << "Number of Nodes: " << count << endl;
     
+    //for search function
+    int value = 0;
+    cout << "Enter a value to search: ";
+    cin >> value;
+    bool searchresult = false;
+    searchresult = search(head, value);
+    if (searchresult == true) {
+        cout << "Found " << value << endl;
+    } else {
+        cout << value << " was not found" << endl;
+    }
+
+
+
     return 0;
 }
