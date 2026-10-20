@@ -71,17 +71,28 @@ int countNodes(Node* head) {
 // TODO 4: Delete the node containing value.
 // Update head when needed and release the removed node using delete.
 void deleteValue(Node*& head, int value) {
-    Node* temp = head;
-    
-    while (head != nullptr) {
-        if (head->data == value) {
-        head = head->next;
-        delete temp;        
+    Node* current = head;
+    Node* previous = nullptr;
+
+    while (current != nullptr) {
+        if (current->data == value) {
+
+            if (previous == nullptr) {
+                head = current->next;
+            } else {
+                previous->next = current->next;
+            }
+
+            delete current;
+            break;
+
+        } else {
+            previous = current;
+            current = current->next;
         }
-        head = head->next;
     }
-    
 }
+
 
 int main() {
     Node* head = nullptr;
@@ -120,6 +131,13 @@ int main() {
         cout << value << " was not found" << endl;
     }
 
+    //for delete function
+    //delete first, middle, last
+    deleteValue(head,100);
+    deleteValue(head,20);
+    deleteValue(head,40);
+    cout << "After delete first, middle, and last nodes: ";
+    display(head);
 
 
     return 0;
