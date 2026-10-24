@@ -46,6 +46,11 @@ int main() {
     Node* rear = nullptr;
 
     // TODO 1:Enqueue five customers
+    enqueue(front,rear, "Ali");
+    enqueue(front,rear, "John");
+    enqueue(front,rear, "Sara");
+    enqueue(front,rear, "David");
+    enqueue(front,rear, "Emma");
     // TODO 2: Display the initial waiting queue.
     // TODO 3:Write a loop that continues until the queue is empty.
     // Inside the loop:
