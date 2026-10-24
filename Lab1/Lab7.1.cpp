@@ -32,7 +32,16 @@ bool isEmpty(Node* top) {
 
 // TODO 1: return 2 for * and /; 1 for + and -; 0 otherwise.
 int precedence(char op) {
-    // Write your code here.
+    int importance = 0;
+
+    if (op == '*' | op == '/') {
+        return 2;
+    }
+    
+    if (op == '+' | op == '-') {
+        return 1;
+    }
+
     return 0; //  replace with your return
 }
 
@@ -50,6 +59,43 @@ string infixToPostfix(string infix) {
     // Operator: pop higher/equal precedence operators, then push.
     // At end: pop remaining operators.
     // Write your code here.
+
+    for (int i = 0; i < infix.length(); ++i){
+        char ch = infix[i];
+        
+        if (ch != '(' && ch != ')' && ch != '*' && ch != '/' && ch != '+' && ch != '-'){
+            postfix += ch;
+        } else if (ch == '(') {
+            push (top, ch);
+        } else if (infix[i] == ')') {
+            while (top != nullptr && top->data != '(') {
+                postfix += top->data;
+
+                Node* temp = top;
+                top = top->next;
+                delete temp;
+            }
+
+            // Remove the '(' from the stack, but don't append it.
+            if (top != nullptr) {
+                Node* temp = top;
+                top = top->next;
+                delete temp;
+            }
+        } else if (ch == '*' || ch == '/' || ch == '+' || ch == '-') {
+            while (top != nullptr && top->data != '(' && precedence(top->data) >= precedence(ch)) {
+                postfix += top->data;
+                pop(top);
+            }
+
+            push(top, ch);
+        }
+    }
+    //clear stack
+    while (top != nullptr) {
+        postfix += top->data;
+        pop(top);
+    }
 
     return postfix;
 }
