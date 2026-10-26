@@ -41,6 +41,17 @@ void displayQueue(Node* front) {
     cout << endl;
 }
 
+
+void sleep() {
+    //num for seconds
+    int sec = 3;
+    for (int i = 0; i < sec; i++){
+        this_thread::sleep_for(chrono::seconds(1));
+        cout << i+1 << " " << flush;
+    }
+    cout << endl;
+}
+
 int main() {
     Node* front = nullptr;
     Node* rear = nullptr;
@@ -52,7 +63,19 @@ int main() {
     enqueue(front,rear, "David");
     enqueue(front,rear, "Emma");
     // TODO 2: Display the initial waiting queue.
+    displayQueue(front);
     // TODO 3:Write a loop that continues until the queue is empty.
+    for (Node* current = front; current != nullptr; current = current->next){
+
+        cout << "Now serving: " << current->data << endl;
+        sleep();
+        cout << "Customer served: " << current->data << " (10 seconds)" << endl;
+        dequeue(front,rear);
+
+        if (current->next == nullptr) {
+            cout << "ALL CUSTOMERS SERVED" << endl;
+        }
+        
     // Inside the loop:
     //   a. Display the name of the front customer being served.
     //   b. Simulate 10 seconds of service using:
@@ -62,6 +85,11 @@ int main() {
 
     // TODO 4: Announce that all customers have been served.
     // TODO 5:Display the final queue to confirm it is empty.
+
+    }
+
+    cout << "Queue after all served customers have been served: ";
+    displayQueue(front);
 
     // PROVIDED: Safety cleanup if any nodes remain.
     while (front != nullptr) dequeue(front, rear);
