@@ -19,12 +19,16 @@ public:
 Node* insert(Node* root, int value) {
     if (root == nullptr) {
         // Todo: create and return a new node with value.
+        Node* newNode = new Node(value);
+        return newNode;
     }
 
     if (value < root->data) {
         // TODO: insert into the left subtree
-    } else {
+        root->left = insert(root->left, value);
+    } else if (value > root->data){
         // TODO: Insert into the right subtree
+        root->right = insert(root->right, value);
     }
 
     return root;
@@ -34,11 +38,13 @@ Node* insert(Node* root, int value) {
 Node* search(Node* root, int key) {
     if (root == nullptr || root->data == key)
         return root;
-
+    //key is too small recurse again left
     if (key < root->data) {
-        // TODO: Search the left subtree.
+        return search(root->left, key);
     } else {
         // TODO: Search the right subtree
+        //key is too large recurse again right
+        return search(root->right, key);
     }
 }
 
@@ -46,7 +52,12 @@ Node* search(Node* root, int key) {
 void inorderTraversal(Node* root) {
     if (root == nullptr)
         return;
-
+    //visit left
+    inorderTraversal(root->left);
+    // display
+    cout << root->data << " ";
+    //visit right
+    inorderTraversal(root->right);
 // Inorder: Left -> Root -> Right
 }
 
@@ -54,9 +65,9 @@ int main(){
     vector<int> values = {50, 30, 70, 20, 40, 60, 80, 65};
     Node* root = nullptr;
     //insertion
-    for (int value : values)
+    for (int value : values){
         root = insert(root, value);
-   
+    }
         //traversal
     cout << "BST In-Order Traversal: " << endl;
     inorderTraversal(root);
