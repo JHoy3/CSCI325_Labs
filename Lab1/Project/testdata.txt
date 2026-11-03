@@ -1,0 +1,9 @@
+The Hobbit,054792822X
+Fahrenheit 451,1451673310
+The Great Gatsby,0743273567
+The Shining,0307743659
+The Hunger Games,0439023483
+Dracula,0486411095
+Frankenstein,0486282112
+Jurassic Park,0345538981
+//There are 8 example of books and their associated ISBN-10. I need a small amout to be able to insert them in order to the binary There
