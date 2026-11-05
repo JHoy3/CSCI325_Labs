@@ -44,7 +44,7 @@ void displayQueue(Node* front) {
 
 void sleep() {
     //num for seconds
-    int sec = 3;
+    int sec = 10;
     for (int i = 0; i < sec; i++){
         this_thread::sleep_for(chrono::seconds(1));
         cout << i+1 << " " << flush;
