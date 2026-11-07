@@ -44,6 +44,11 @@ Node* rightRotate(Node* y) {
     Node* T2 = x->right;
 
     // TODO: pwrform the rotation, height update, and return new root
+    x->right = y;
+    y->left = T2;
+    updateHeight(y);
+    updateHeight(x);
+
     return x;
 }
 
@@ -52,11 +57,51 @@ Node* leftRotate(Node* x) {
     Node* T2 = y->left;
 
     // TODO: pwrform the rotation, height update, and return new root
+    y->left = x;
+    x->right = T2;
+
+    updateHeight(y);
+    updateHeight(x);
     return y;
 }
 
 Node* insert(Node* node, int data) {
     // TODO: Insert as in a regular BST, height, BF, handle rotations (all), return root 
+    if (node == nullptr) {
+        return new Node(data);
+    }
+
+    if (data < node->data) {
+        node->left = insert(node->left, data);
+    } else if (data > node->data) {
+        node->right = insert(node->right, data);
+    } else {
+        return node;
+    }
+
+    updateHeight(node);
+
+    int BF = getBalance(node);
+
+    //ll case
+    if (BF > 1 && data < node->left->data) {
+        return rightRotate(node);
+    }
+    //RR case
+    if (BF < -1 && data > node->right->data) {
+        return leftRotate(node);
+    }
+    //LR case
+    if (BF > 1 && data > node->left->data) {
+        node->left = leftRotate(node->left);
+        return rightRotate(node);
+    }
+    //RL case
+    if (BF < -1 && data < node->right->data) {
+        node->right = rightRotate(node->right);
+        return leftRotate(node);
+    }
+
     return node;
 }
 
