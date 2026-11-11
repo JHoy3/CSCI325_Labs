@@ -34,9 +34,20 @@ int main () {
         {
             int id;
             string name;
+            char choice = '\0';
+
             cout << "Please offer an ID: "; cin >> id;
-            cout << "Please offer a Name: "; cin >> name;
-            students[id] = name;
+            for (auto student : students) {
+                if (student.first == id) {
+                    cout << "Id aleady exits, do you want to overwrite (y) (n)? "; cin >> choice;
+                    break;
+                }
+            }
+            if (toupper(choice) != 'N')
+            {
+                cout << "Please offer a Name: "; cin >> name;
+                students[id] = name;
+            }
 
         }
         else if (c == 'F')
