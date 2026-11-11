@@ -4,25 +4,13 @@
 
 using namespace std;
 
+// Authors: Jacob Hoy, Aaron Kyzar
 
 int main () {
 
     unordered_map<int, string> students;
 
-    // //insert 
-    // cout << "Please enter 5 student IDs and names: " << endl;
-    // for (int i = 0; i < 5; i++)
-    // {
-    //     int id; string name;
-    //     cout << "ID #" << i+1 << ": "; cin >> id;
-    //     cout << "Name # " << i+1 << ": "; cin >> name;
-
-    //     students[id] = name;
-    // }
-
-    //find
-
-    //list
+    cout << "Authors: Jacob Hoy, Aaron Kyzar" << endl;
 
     char c = '\0';
     while (c != 'Q')
